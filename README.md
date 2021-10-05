@@ -1,2 +1,2 @@
 # FLCD
-Repo for the Formal Langugages and Compiler Design class at uni. COnsists of mostly labs.
+Repo for the Formal Langugages and Compiler Design class at uni. Consists of mostly labs.
