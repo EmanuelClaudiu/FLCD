@@ -1,0 +1,18 @@
+-comment-
+    This is p3 of my mini-language.
+    Computing the sum of n numbers.
+-/comment-
+
+sum: integer
+n: integer
+read_number: integer
+sum = 0
+
+n = read_integer()
+
+from 1 to n as i
+    read_number = read_integer()
+    sum += read_number
+/from
+
+print("The sum of the n numbers is:{sum}")

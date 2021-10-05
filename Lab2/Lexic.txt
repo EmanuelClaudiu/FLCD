@@ -1,0 +1,61 @@
+Alphabet:
+    a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
+    b. Underline character '_';
+    c. Dash '/';
+    c. Decimal digits (0-9);
+
+    1. Lexic:
+        a. Special symbols, representing:
+            - operators:
+                arithmetic: +, -, *, /, %
+                assignment: =
+                declaration: :
+                boolean logic: !
+                equality testing: ==, !=
+                increment and decrement: ++, --, +=, -=
+                order relations: <, <=, >, >=
+            - separators:
+                ( ) [ ] space tab newline
+            - reserved words:
+                skip (like break)
+                if 
+                /if (ends if statement that does not contain aniy else's)
+                else 
+                /ifelse (ends if statement that also contains an 'else')
+                integer
+                boolean
+                string
+                float
+                string
+                -comment-
+                -/comment-
+                return
+                from
+                to
+                as
+                /from
+                while
+                /while
+                read_integer
+                read_float
+                read_boolean
+                read_string
+                print
+                void
+        b.identifiers
+            -a sequence of letters and digits, such that the first charater is a letter; the rule is:
+                identifier = {"_"}letter{letter | digit}
+                letter = "A" | "B" | . ..| "Z" | "a" | "b" | ... | "z"
+                digit = "0" | "1" |...| "9"
+                sign = "+" | "-"
+                dot = "."
+        c.constants
+            1.integer:
+                integer = digit{digit}
+            2. boolean:
+                boolean = "true" | "false"
+            3. string:
+                character = letter | digit
+                string = character{string}
+            4: float:
+                integer "." integer
