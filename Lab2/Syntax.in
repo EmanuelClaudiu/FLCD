@@ -1,26 +1,19 @@
 program = “statement_list”;
 statement_list = statement["\nl"{statement_list}];
-
 statement = declaration | simple_statement | struct_statement;
-
 declaration = identifier":"type;
 type = “integer” | “boolean” | "string" | "float" | "void";
-
 simple_statement = assignment | input_statement | output_statement | increment | decrement;
-
 increment = identifier"++" | "++"identifier;
 decrement = identifier"--" | "--"identifier;
 assignment = identifier “=” expression;
 input_statement = "read_integer()" | "read_boolean()" | "read_string()" | "read_float()";
 output_statement = "print(" ( identifier | expression ) ")";
-
 expression = [!] (expression operation expression) | “(” expression operation expression “)”;
 operation = “+” | “-” | “*” | “/” | “%” | “!” | relation;
 relation = "==" | "!=" | "<" | "<=" | ">" | ">=" | "+=" | "-=";
-
 struct_statement = if_statement | ifelse_statement | from_statement | while_statement;
 condition = expression relation expression;
-
 if_statement = “if” “(“ condition “)” statement_list "/if";
 ifelse_statement = "if" "(" condition ")" statement_list "else" statement_list "/ifelse";
 from_statement = "from" ( expression | identifier ) "to" ( expression | identifier ) "as" identifier statement_list "/from";
