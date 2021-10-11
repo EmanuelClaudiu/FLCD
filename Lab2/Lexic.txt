@@ -26,7 +26,6 @@ Alphabet:
                 boolean
                 string
                 float
-                string
                 -comment-
                 -/comment-
                 return
