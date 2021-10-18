@@ -1,0 +1,17 @@
+Repo: https://github.com/EmanuelClaudiu/FLCD
+
+Lab: https://github.com/EmanuelClaudiu/FLCD/tree/main/Lab3 (by 'Lab3' I mean the lab from week #3)
+
+Models: SymbolTable, BinarySearchTree, Node
+
+Node: 
+    An object containing data about the token, a link to the right child, and a link to the left child (None if no child)
+
+BinarySearchTree:
+    A binary search tree data structure with a root node, that implements the add and search functionalities.
+    Each node contains a token that is greater that the token of the left child, and smaller that the token of the right child.
+    Tokens from the nodes are compared alfabetically.
+
+SymbolTable:
+    Symbol table that implements the insert and search operations, on top of the BST.
+    There is only one instance of ST for both the identifiers and the constants.
