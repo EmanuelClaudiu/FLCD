@@ -1,0 +1,35 @@
+-comment-
+    This is p2 of my mini-language.
+    verifiyng if a number is prime.
+-/comment-
+
+n: integer
+is_prime: boolean
+is_prime = true
+
+n = read_integer()
+
+if((n % 2) == 0)
+    is_prime = false
+else
+    if(n < 2)
+        is_prime = false
+    else
+        from 3 to (n / 2) as i
+            if ((n % i) == 0)
+                is_prime = false
+                skip
+            /if
+        /from
+    /ifelse
+/ifelse
+
+if (n == 2)
+    is_prime = true
+/if
+
+if (is_prime == true):
+    print("Yes")
+else
+    print("No")
+/ifelse
