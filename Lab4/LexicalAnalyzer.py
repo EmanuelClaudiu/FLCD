@@ -1,5 +1,6 @@
 from  ST.symbol_table import SymbolTable
 import re
+from tokens.regular_expressions import operator_re, whitespace_re, reserved_word_re, identifier_re, constant_re
 import os
 
 class LexicalAnalyzer():
@@ -9,9 +10,11 @@ class LexicalAnalyzer():
         self.ST = symbol_table
         self.PIF = []
         self.comment_active = False
-        self.operator_regex = re.compile(r'^[+*/%=:!><-]$|^[=!]=$|^[+]{2}$|^[-]{2}$|^[+-]=$|^[<>]=$')
-        self.separator_regex = re.compile(r'^\s$|^[\(\)\[\]]$')
-        self.reserved_word_regex = ""
+        self.operator_regex = operator_re
+        self.separator_regex = whitespace_re
+        self.reserved_word_regex = reserved_word_re
+        self.identifier_regex = identifier_re
+        self.constant_regex = constant_re
 
     def detect(self, token):
         # check if comment
