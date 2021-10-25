@@ -1,4 +1,5 @@
 from  ST.symbol_table import SymbolTable
+import re
 import os
 
 class LexicalAnalyzer():
@@ -8,14 +9,21 @@ class LexicalAnalyzer():
         self.ST = symbol_table
         self.PIF = []
         self.comment_active = False
+        self.operator_regex = re.compile(r'^[+*/%=:!><-]$|^[=!]=$|^[+]{2}$|^[-]{2}$|^[+-]=$|^[<>]=$')
+        self.separator_regex = re.compile(r'^\s$|^[\(\)\[\]]$')
+        self.reserved_word_regex = ""
 
     def detect(self, token):
         # check if comment
-        if 'comment' in token:
             if '/' in token:
                 self.comment_active = False
             else:
                 self.comment_active = True
+        # check if operator
+        # check if separator
+        # check if reserved word
+        # check if identifier
+        # check if constant (integer, boolean, string, float, void)
         
 
     def parse_line(self, line):

@@ -25,6 +25,7 @@ Alphabet:
                 boolean
                 string
                 float
+                void
                 -comment-
                 -/comment-
                 return
@@ -39,7 +40,6 @@ Alphabet:
                 read_boolean
                 read_string
                 print
-                void
         b.identifiers
             -a sequence of letters and digits, such that the first charater is a letter; the rule is:
                 identifier = {"_"}letter{letter | digit}
@@ -57,3 +57,4 @@ Alphabet:
                 string = character{string}
             4: float:
                 integer "." integer
+            5: void
