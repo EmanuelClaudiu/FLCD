@@ -3,26 +3,26 @@
     Computing the max of 3 numbers. Contains 2 lexical errors.
 -/comment-
 
-a: integer
-b: integer
-c: integer
+a : integer
+b : integer
+c : integer
 
-a = read_integer()
+a = read_integer ( )
 b = 2false
 c = "1
 
-if(a > b)
-    if(a > c)
-        print(a)
+if ( a > b )
+    if ( a > c )
+        print ( a )
     /if
 /if
-if(b > a)
-    if(b > c)
-        print(b)
+if ( b > a )
+    if ( b > c )
+        print ( b )
     /if
 /if
-if(c > a)
-    if(c > b)
-        print(c)
+if ( c > a )
+    if ( c > b )
+        print ( c )
     /if
 /if

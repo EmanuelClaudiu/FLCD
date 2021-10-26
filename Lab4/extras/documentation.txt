@@ -1,0 +1,40 @@
+git repo:
+https://github.com/EmanuelClaudiu/FLCD/tree/main/Lab4
+
+Lexical analyzer:
+
+classes used:
+
+LexicalType: enum
+    - defines the type of a token. Error if no type assigned to token
+
+LexicalAnalyzer
+    - attributes:
+        program
+            the program to run
+        ST
+            symbol table
+        PIF 
+            lsit of (token, index) tuples
+        comment_active
+            if the parser is inside of a comment, it ignores the token
+        regular expressions
+            for operator, separator, reserved word, identifier and constant
+            these match the token to a specific type
+        errors
+            list of errors. If empty, then program is lexically ok
+    
+    - methods:
+
+        run(program)
+            takes the program path as argument, parses it, prints PIF or error if errors
+        parse_file()
+            opens file, parses it line by line
+        parse_line(line)
+            splits line into tokens
+        parse_token(token)
+            detects the token type, adds to PIF and ST, or marks an error
+        detect(token)
+            matches the token to a type by using a regex
+        genPIF(token, index)
+            adds the token both to the PIF and the ST
