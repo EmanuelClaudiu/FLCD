@@ -1,0 +1,7 @@
+Github link: https://github.com/EmanuelClaudiu/FLCD/tree/main/Lab6
+
+FiniteAutomaton - class
+    FA - json parsed from the input file 'FA.json'
+    showElements() - funtion that lists elements of FA using a menu
+    checkIfAccepted() - functions that checks if a sequence is accepted by FA (is language of machine)
+    
