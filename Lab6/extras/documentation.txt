@@ -5,3 +5,10 @@ FiniteAutomaton - class
     showElements() - funtion that lists elements of FA using a menu
     checkIfAccepted() - functions that checks if a sequence is accepted by FA (is language of machine)
     
+FA.json - input file
+    "input file": "{" "set of states",  "alphabet", "transition function", "start state", "set of final states" "}"
+    "set of states": "[" {symbol} "]"
+    "alphabet": "[" {transition} "]"
+    "transition function": "{" {symbol ":" "{" {transition ":" symbol} "}" } "}"
+    "start state": symbol
+    "set of final states": "[" {symbol} "]"
