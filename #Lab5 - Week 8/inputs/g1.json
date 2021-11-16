@@ -1,0 +1,12 @@
+{
+    "non-terminals": ["A", "B", "C", "D"],
+    "alphabet": ["a", "b", "c"],
+    "productions": {
+        "S": ["aA", "aC"],
+        "A": ["AB"],
+        "B": ["b"],
+        "C": ["aC", "CD"],
+        "D": ["b"]
+    },
+    "starting_symbol": ["S"]
+}
