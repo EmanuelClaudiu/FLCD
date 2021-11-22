@@ -1,6 +1,6 @@
 {
-    "non-terminals": ["A", "B", "C", "D"],
-    "alphabet": ["a", "b", "c"],
+    "non-terminals": ["S", "A", "B", "C", "D"],
+    "terminals": ["a", "b", "c"],
     "productions": {
         "S": ["aA", "aC"],
         "A": ["AB"],
