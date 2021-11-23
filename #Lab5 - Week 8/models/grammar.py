@@ -68,6 +68,6 @@ class Grammar:
             return True
         return False
 
-directory_path = "/home/emanuelignat/uni-manu/compilers/FLCD/#Lab5 - Week 8/"
-g = Grammar(f'{directory_path}inputs/g1.json')
-g.showMenu()
+# directory_path = "/home/emanuelignat/uni-manu/compilers/FLCD/#Lab5 - Week 8/"
+# g = Grammar(f'{directory_path}inputs/g1.json')
+# g.showMenu()
