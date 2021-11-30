@@ -1,0 +1,11 @@
+{
+    "non-terminals": ["S", "A", "B", "C"],
+    "terminals": ["b", "d", "a", "g", "e", "@"],
+    "productions": {
+        "S": ["AbB", "d"],
+        "A": ["CAb", "Ba"],
+        "B": ["gSd", "@"],
+        "C": ["a", "ed"]
+    },
+    "starting_symbol": ["S"]
+}
