@@ -68,6 +68,18 @@ class Grammar:
             return True
         return False
 
+    def __str__(self):
+        toReturn = ""
+        toReturn += "--------------------------\n"
+        for key in self.productions.keys():
+            toReturn += f"{key} -> "
+            for production in self.productions[key]:
+                toReturn += f"{production} | "
+            toReturn = toReturn[:-2]
+            toReturn += "\n"
+        toReturn += "--------------------------\n"
+        return toReturn
+
 # directory_path = "/home/emanuelignat/uni-manu/compilers/FLCD/#Lab5 - Week 8/"
 # g = Grammar(f'{directory_path}inputs/g1.json')
 # g.showMenu()
