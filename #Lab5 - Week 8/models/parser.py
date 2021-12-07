@@ -155,9 +155,9 @@ class Parser:
                 return False
         return True
 
-directory_path = "/home/emanuelignat/uni-manu/compilers/FLCD/#Lab5 - Week 8/"
-g = Grammar(f'{directory_path}inputs/g4.json')
-p = Parser(g)
-print(p.grammar)
-print(p.FIRST)
-print(p.FOLLOW)
+# directory_path = "/home/emanuelignat/uni-manu/compilers/FLCD/#Lab5 - Week 8/"
+# g = Grammar(f'{directory_path}inputs/g4.json')
+# p = Parser(g)
+# print(p.grammar)
+# print(p.FIRST)
+# print(p.FOLLOW)
