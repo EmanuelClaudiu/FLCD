@@ -1,0 +1,12 @@
+{
+    "non-terminals": ["A", "B", "C", "D", "E"],
+    "terminals": ["d", "+", "*", "(", ")", "@"],
+    "productions": {
+        "A": ["CB"],
+        "B": ["+CB", "@"],
+        "C": ["ED"],
+        "D": ["*ED", "@"],
+        "E": ["(A)", "d"]
+    },
+    "starting_symbol": ["A"]
+}

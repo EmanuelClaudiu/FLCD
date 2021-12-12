@@ -1,5 +1,8 @@
 from parser import Parser
 from grammar import Grammar
+import copy
+from parse_tree.node import Node
+from parse_tree.tree import ParsingTree
 
 class ParseTable:
 
@@ -7,6 +10,8 @@ class ParseTable:
         self.parser = parser
         self.grammar = self.parser.grammar
         self.table = {}
+        self.stack = []
+        self.input = []
         self.init_table()
         self.create_table()
 
@@ -24,9 +29,11 @@ class ParseTable:
         for non_terminal in self.grammar.productions:
             first = self.parser.FIRST[non_terminal]
             for element in first:
-                # check epsilon !!
                 production = self.check_production(non_terminal, element)
-                self.table[non_terminal][element] = production
+                if element == '@':
+                    self.handle_epsilon(non_terminal, production)
+                else:
+                    self.table[non_terminal][element] = production
 
     def check_production(self, non_terminal, first_element):
         productions = self.grammar.productions[non_terminal]
@@ -34,6 +41,11 @@ class ParseTable:
             if first_element in p:
                 return self.split_productions(non_terminal, p)
         return self.split_productions(non_terminal, productions[0])
+
+    def handle_epsilon(self, non_terminal, production):
+        follow = self.parser.FOLLOW[non_terminal]
+        for element in follow:
+            self.table[non_terminal][element] = production
 
     def split_productions(self, non_terminal, production):
         array = []
@@ -60,9 +72,48 @@ class ParseTable:
         for key in self.table.keys():
             print(f"{key}: {self.table[key]}")
 
+    def check_input(self, input):
+        self.init_stack()
+        self.init_input_stack(input)
+        flag = True
+        root_node = Node(self.stack[-1])
+        while flag:
+            print(f"Stack: {self.stack} | i/o:{self.input}")
+            element = self.stack.pop()
+            input_element = self.input[-1]
+            if element == '$':
+                if self.input[0] == '$':
+                    flag = False
+                    print("Accepted")
+                else:
+                    return False
+            elif element == input_element:
+                self.pop()
+            else:
+                production = copy.deepcopy(self.table[element][input_element][1])
+                if production[0] == "@":
+                    pass
+                else:
+                    while len(production) != 0:
+                        self.stack.append(production.pop())
+
+
+    def pop(self):
+        self.input.pop()
+
+    def init_stack(self):
+        self.stack = []
+        self.stack.append('$')
+        self.stack.append(self.grammar.starting_symbol[0])
+
+    def init_input_stack(self, input):
+        self.input.append('$')
+        for element in input:
+            self.input.append(element)
 
 directory_path = "/home/emanuelignat/uni-manu/compilers/FLCD/#Lab5 - Week 8/"
-g = Grammar(f'{directory_path}inputs/g4.json')
+g = Grammar(f'{directory_path}inputs/g6.json')
 p = Parser(g)
 p1 = ParseTable(p)
-p1.pretty_print()
+# p1.pretty_print()
+p1.check_input('d+d')
