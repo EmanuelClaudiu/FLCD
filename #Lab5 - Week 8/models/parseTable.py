@@ -12,6 +12,7 @@ class ParseTable:
         self.table = {}
         self.stack = []
         self.input = []
+        self.parseTree = None
         self.init_table()
         self.create_table()
 
@@ -19,7 +20,6 @@ class ParseTable:
         for non_terminal in self.grammar.non_terminals:
             set = {}
             for terminal in self.grammar.terminals:
-                # E[id] = E -> ab@
                 if terminal == "@":
                     terminal = "$"
                 set[terminal] = ('', [])
@@ -76,7 +76,7 @@ class ParseTable:
         self.init_stack()
         self.init_input_stack(input)
         flag = True
-        root_node = Node(self.stack[-1])
+        action = []
         while flag:
             print(f"Stack: {self.stack} | i/o:{self.input}")
             element = self.stack.pop()
@@ -85,18 +85,32 @@ class ParseTable:
                 if self.input[0] == '$':
                     flag = False
                     print("Accepted")
+                    action.append("accepted")
                 else:
+                    action.append("rejected")
                     return False
             elif element == input_element:
                 self.pop()
+                action.append(("pop", element))
             else:
-                production = copy.deepcopy(self.table[element][input_element][1])
-                if production[0] == "@":
+                production = copy.deepcopy(self.table[element][input_element])
+                if production[1][0] == "@":
                     pass
+                    action.append(production)
                 else:
-                    while len(production) != 0:
-                        self.stack.append(production.pop())
+                    p = copy.deepcopy(production)
+                    action.append(p)
+                    while len(production[1]) != 0:
+                        self.stack.append(production[1].pop())
+        print("---------------------------------------------")
+        for a in action:
+            print(a)
+        print("---------------------------------------------")
+        self.create_parse_tree(action)
 
+    def create_parse_tree(self, action):
+        self.parseTree = Node(action, None)
+        self.parseTree.configure()
 
     def pop(self):
         self.input.pop()
@@ -117,3 +131,4 @@ p = Parser(g)
 p1 = ParseTable(p)
 # p1.pretty_print()
 p1.check_input('d+d')
+print(p1.parseTree.print_children())
