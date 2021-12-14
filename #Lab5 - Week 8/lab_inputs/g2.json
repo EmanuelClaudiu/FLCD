@@ -1,0 +1,26 @@
+{
+  "non-terminals": ["program", "statement", "statement_list", "declaration", "identifier", "type"],
+  "terminals": ["integer", "boolean", "a", "b", "\nl", ":"],
+  "productions": {
+    "program": ["statement_list"],
+    "statement_list": ["statement", "statement\nlstatement_list"],
+    "statement": ["declaration"],
+    "declaration": ["identifier:type"],
+    "identifier": ["a", "b"],
+    "type": ["integer", "boolean"]
+  },
+  "starting_symbol": ["program"],
+  "translation": {
+    "non-terminals": ["A", "B", "C", "D", "E", "F"],
+    "terminals": ["a", "b", "c", "d", "n", ":"],
+    "productions": {
+      "A": ["C"],
+      "C": ["B", "BnC"],
+      "B": ["D"],
+      "D": ["E:F"],
+      "E": ["c", "d"],
+      "F": ["c", "d"]
+    },
+    "starting_symbol": ["A"]
+  }
+}

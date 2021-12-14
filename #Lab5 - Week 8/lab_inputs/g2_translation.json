@@ -1,0 +1,13 @@
+{
+  "non-terminals": ["program", "statement", "statement_list", "declaration", "identifier", "type"],
+  "terminals": ["integer", "boolean", "a", "b", "\nl"],
+  "productions": {
+    "program": ["statement_list"],
+    "statement_list": ["statement", "statement\nlstatement_list"],
+    "statement": ["declaration"],
+    "declaration": ["identifier:type"],
+    "identifier": ["a", "b"],
+    "type": ["integer", "boolean"]
+  },
+  "starting_symbol": ["program"]
+}

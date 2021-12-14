@@ -6,6 +6,8 @@ class Grammar:
     def __init__(self, inputFile):
         self.input_file = open(inputFile)
         self.grammar = json.load(self.input_file)
+        if "translation" in self.grammar:
+            self.grammar = self.grammar["translation"]
         self.non_terminals = self.grammar['non-terminals']
         self.terminals = self.grammar['terminals']
         self.productions = self.grammar['productions']

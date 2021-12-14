@@ -13,6 +13,7 @@ class ParseTable:
         self.stack = []
         self.input = []
         self.parseTree = None
+        self.NODES = []
         self.init_table()
         self.create_table()
 
@@ -108,8 +109,12 @@ class ParseTable:
         print("---------------------------------------------")
         self.create_parse_tree(action)
 
+    def printParseTree(self):
+        for node in self.NODES:
+            print(node)
+
     def create_parse_tree(self, action):
-        self.parseTree = Node(action, None)
+        self.parseTree = Node(action, None, self.NODES)
         self.parseTree.configure()
 
     def pop(self):
@@ -125,10 +130,11 @@ class ParseTable:
         for element in input:
             self.input.append(element)
 
+
 directory_path = "/home/emanuelignat/uni-manu/compilers/FLCD/#Lab5 - Week 8/"
-g = Grammar(f'{directory_path}inputs/g6.json')
+g = Grammar(f'{directory_path}lab_inputs/g2.json')
 p = Parser(g)
 p1 = ParseTable(p)
 # p1.pretty_print()
-p1.check_input('d+d')
-print(p1.parseTree.print_children())
+p1.check_input('c:a')
+p1.printParseTree()
